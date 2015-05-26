@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Suivi des points de ventes</title>
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+
+</head>
+<body>
+<div class="outer">
+    <font style = "color : red" id="error"><%=error%></font>
+    <div class="cart">
+        <h1>Suivi des points de ventes</h1>
+        <br />
+        <table border="1" id="table">
+            <thead>
+            <tr>
+                <th>Point de ventes</th>
+                <th>Montant</th>
+                <th>Nombre de transactions</th>
+                <th>Supprimer</th>
+                <th>Editer</th>
+            </tr>
+            </thead>
+            <tbody class="container">
+
+            <!--render table with items data -->
+            <% for(var i=0; i<items.length; i++) { %>
+            <tr id="<%= items[i]._id %>">
+                <td class='name' id='name'><%= items[i].name %></td>
+                <td class='price' id='price'><%= items[i].price %></td>
+                <td class='qty' id='qty'><%= items[i].qty %></td>
+                <td><a href="#" onclick="removeData(this)" data='<%= items[i]._id %>' class="btnRemove" name="remove">Remove</a></td>
+                <td><a i=<%=i%> data="<%= items[i]._id %>" href="#" class="btnEdit" onclick='editData(this)'>Edit</a></td>
+            </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+        <br />
+
+        <!--updation table form-->
+        <table class="updateT" id="updateT">
+            <form id="form2">
+                <tr>
+                    <td>Point de vente: </td>
+                    <td><input type="text" name="name" id="txtnm1"  /></td>
+                </tr>
+                <tr>
+                    <td>Montant: </td>
+                    <td><input type="text" name="price" id="txtprice1" /></td>
+                </tr>
+                <tr>
+                    <td>Nombre de transactions: </td>
+                    <td><input type="text" name="qty" id="txtqty1" /></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Update" id="update" />&nbsp;<input type="button" value="Cancel" id="cancel" /></td>
+                    <td><input type="hidden" name="hide" id="hide" value=""></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

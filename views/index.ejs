@@ -1,0 +1,45 @@
+<html>
+	<head>
+        <title>Ajout des points de ventes</title>
+        <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+		<script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>	
+        <script type="text/javascript" src="/javascripts/script.js"></script>	
+		
+    </head>
+<body>
+<div class="outer">
+		<font style = "color : red" id="error"><%=error%></font>
+		<div class="cart">
+
+			
+		<h1>Insertion des points de ventes</h1>
+			
+			<!--insertion table form-->
+			<table class="addT" id="addT">
+            <form id="form1">
+				<tr>
+					<td>Point de vente: </td>
+					<td><input type="text" name="name" id="txtnm"  /></td>
+				</tr>
+				<tr>
+					<td>Montant: </td>
+					<td><input type="text" name="price" id="txtprice" /></td>
+				</tr>
+				<tr>
+					<td>Nombre de transactions: </td>
+					<td><input type="text" name="qty" id="txtqty" /></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="Add" id="add" /> </td>				
+				</tr>
+                </form>
+			</table>
+			
+
+					
+		</div>
+	</div>
+	
+</body>
+</html>
